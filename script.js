@@ -70,7 +70,21 @@ function shuffleRows() {
 document.getElementById("shuffle").onclick = shuffleRows;
 
 // ---------- PDF: A4 landscape, 2 x 2 cards of 120 x 75 mm ----------
-const FONTS = window.PDF_FONTS; // subset Fira Sans Extra Condensed TTFs, see fonts.js
+// Fira Sans Extra Condensed (SIL OFL), subset to the characters on the card.
+// jsPDF needs TTF bytes, so the files in fonts/ are fetched once on the first print.
+const FONT_WEIGHTS = [400, 600, 700, 800];
+let fontsPromise;
+function loadFonts() {
+  fontsPromise ??= Promise.all(FONT_WEIGHTS.map(async w => {
+    const res = await fetch(`fonts/fira-${w}.ttf`);
+    if (!res.ok) throw new Error(`Font fira-${w}.ttf niet gevonden`);
+    const bytes = new Uint8Array(await res.arrayBuffer());
+    let bin = "";
+    for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+    return [w, btoa(bin)];
+  })).then(Object.fromEntries).catch(e => { fontsPromise = null; throw e; });
+  return fontsPromise;
+}
 const CARD_W = 120, K = CARD_W / 500, CARD_H = 314 * K;       // mm per sheet unit
 const PT = u => u * K / 0.352778;                               // sheet units -> font pt
 const downloadsReady = window.claude?.use ? window.claude.use("downloads").catch(() => null) : Promise.resolve(null);
@@ -168,9 +182,9 @@ function drawCard(pdf, ox, oy, rowsNums) {
   rrect(378, 271, 112, 31, 7, "#ffffff", "#16171c", 2.2);
 }
 
-function buildPdf(pages) {
+function buildPdf(pages, fonts) {
   const pdf = new window.jspdf.jsPDF({ orientation: "landscape", unit: "mm", format: "a4", compress: true });
-  Object.entries(FONTS).forEach(([w, b64]) => {
+  Object.entries(fonts).forEach(([w, b64]) => {
     pdf.addFileToVFS(`fira${w}.ttf`, b64);
     pdf.addFont(`fira${w}.ttf`, "Fira" + w, "normal");
   });
@@ -202,7 +216,7 @@ document.getElementById("print").onclick = async () => {
   setStatus("PDF maken…");
   try {
     await new Promise(r => setTimeout(r, 30));
-    const pdf = buildPdf(pages);
+    const pdf = buildPdf(pages, await loadFonts());
     const blob = pdf.output("blob");
     const filename = `qwixx-kaartjes-${pages * 4}.pdf`;
     const label = `${pages} A4${pages > 1 ? "'s" : ""} met ${pages * 4} kaartjes`;
