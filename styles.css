@@ -1,0 +1,103 @@
+/* Exact replica of the paper sheet: everything is laid out on the sheet's own
+   500 x 314 grid, where 1em = 1 sheet pixel, so it scales as one piece. */
+:root {
+  color-scheme: light;
+  --page: #f4f4f4;
+  --sheet: #e3e3e3;
+  --bar: #bcbcbc;
+  --ink: #111216;
+  --box-line: #b4b4b6;
+  --font: "Fira Sans Extra Condensed", "Roboto Condensed", "Arial Narrow", sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font);
+  padding-block: 24px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.fit { width: 100%; max-width: 1000px; container-type: inline-size; }
+.sheet {
+  position: relative;
+  font-size: calc(100cqw / 500);
+  width: 500em; height: 314em;
+  background: var(--sheet);
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.sheet > * { position: absolute; }
+.t { font-size: 1em; }               /* text holders reset font-size per element */
+
+.band  { border-radius: 0; }
+.track { border-radius: 7em; }
+.cell {
+  border-radius: 6em;
+  border: 1em solid rgba(255,255,255,.9);
+  box-shadow: inset 0 0 0 1em rgba(255,255,255,.35);
+  display: flex; align-items: center; justify-content: center;
+}
+.cell span {
+  font-size: 31em; font-weight: 600; line-height: 1;
+  letter-spacing: -.02em;
+  margin-top: .04em;
+}
+
+.link { height: 3em; }
+.lock {
+  border-radius: 50%;
+  border: 2.5em solid;
+  display: flex; align-items: center; justify-content: center;
+}
+.lock svg { width: 24em; height: 24em; }
+.arrow { width: 20em; height: 21em; }
+
+.label span { font-size: 11.5em; font-weight: 700; line-height: 1; white-space: nowrap; }
+.pt {
+  background: #fff; border: 1em solid var(--box-line); border-radius: 5em;
+  display: grid; grid-template-rows: 1fr 1fr;
+}
+.pt div { display: flex; align-items: center; justify-content: center; }
+.pt div:first-child { border-bottom: .8em solid #d6d6d8; margin: 0 3em; }
+.pt div:first-child span { font-size: 13em; font-weight: 700; }
+.pt div:last-child span  { font-size: 12em; font-weight: 600; }
+.pen-label span { font-size: 10em; font-weight: 400; white-space: nowrap; }
+.pen-label b { font-weight: 700; }
+.pen {
+  background: #fff; border: 1em solid var(--box-line); border-radius: 4em;
+}
+
+.bar { background: var(--bar); border-top: 1em solid #c9c7c7; }
+.box {
+  background: #fff; border-radius: 6em; border: 1.6em solid;
+  display: flex; align-items: center; justify-content: center;
+}
+.box span { font-size: 17em; font-weight: 700; }
+.box.total { border-width: 2.2em; border-radius: 7em; }
+.box.total span { font-size: 20em; }
+.op { display: flex; align-items: center; justify-content: center; }
+.op span { font-size: 22em; font-weight: 800; line-height: 1; }
+
+
+.under {
+  display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; justify-content: center;
+  font: 600 15px var(--font); color: var(--ink);
+}
+.under button {
+  font: 600 15px var(--font); padding: 7px 16px; border: 1px solid #bcbcbc;
+  border-radius: 6px; background: #fff; color: var(--ink); cursor: pointer;
+}
+.under button.primary { background: var(--ink); border-color: var(--ink); color: #fff; }
+.under button:disabled { opacity: .6; cursor: progress; }
+.under button:focus-visible, .under input:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.print-group { display: flex; align-items: center; gap: 8px; }
+.print-group input {
+  width: 64px; font: 600 15px var(--font); padding: 6px 8px; text-align: center;
+  border: 1px solid #bcbcbc; border-radius: 6px; background: #fff; color: var(--ink);
+}
+.divider { width: 1px; height: 26px; background: #cfcfcf; }
+#status { font: 400 14px var(--font); color: #555; text-align: center; min-height: 1.3em; max-width: 60ch; }
