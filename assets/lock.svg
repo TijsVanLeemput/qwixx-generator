@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Open padlock from the Qwixx sheet. Single colour with a see-through keyhole,
+       so it can be tinted per row via CSS mask-image (see .lock-icon in styles.css). -->
+  <defs>
+    <mask id="keyhole">
+      <rect x="-4" y="-4" width="32" height="32" fill="#fff"/>
+      <circle cx="11.25" cy="14.6" r="1.6" fill="#000"/>
+      <rect x="10.5" y="15" width="1.5" height="3.4" rx=".7" fill="#000"/>
+    </mask>
+  </defs>
+  <g transform="rotate(-18 12 13)">
+    <path d="M7.2 10.5V7.2a4.4 4.4 0 0 1 8.4-1.9" fill="none" stroke="#000" stroke-width="2.6" stroke-linecap="round"/>
+    <rect x="4.5" y="10.2" width="13.5" height="11" rx="2.2" fill="#000" mask="url(#keyhole)"/>
+  </g>
+</svg>

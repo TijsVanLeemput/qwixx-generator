@@ -8,7 +8,129 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="fit"><div class="sheet" id="sheet"></div></div>
+<div class="fit">
+  <div class="sheet" id="sheet">
+    <div class="rows">
+      <div class="row red">
+        <div class="band"></div>
+        <div class="track">
+          <div class="cell"><span>2</span></div>
+          <div class="cell"><span>3</span></div>
+          <div class="cell"><span>4</span></div>
+          <div class="cell"><span>5</span></div>
+          <div class="cell"><span>6</span></div>
+          <div class="cell"><span>7</span></div>
+          <div class="cell"><span>8</span></div>
+          <div class="cell"><span>9</span></div>
+          <div class="cell"><span>10</span></div>
+          <div class="cell"><span>11</span></div>
+          <div class="cell"><span>12</span></div>
+        </div>
+        <div class="link"></div>
+        <div class="lock"><span class="lock-icon" aria-hidden="true"></span></div>
+        <svg class="arrow" viewBox="0 0 20 21" aria-hidden="true"><polygon points="0,1 19,10.5 0,20" /></svg>
+      </div>
+      <div class="row yellow">
+        <div class="band"></div>
+        <div class="track">
+          <div class="cell"><span>2</span></div>
+          <div class="cell"><span>3</span></div>
+          <div class="cell"><span>4</span></div>
+          <div class="cell"><span>5</span></div>
+          <div class="cell"><span>6</span></div>
+          <div class="cell"><span>7</span></div>
+          <div class="cell"><span>8</span></div>
+          <div class="cell"><span>9</span></div>
+          <div class="cell"><span>10</span></div>
+          <div class="cell"><span>11</span></div>
+          <div class="cell"><span>12</span></div>
+        </div>
+        <div class="link"></div>
+        <div class="lock"><span class="lock-icon" aria-hidden="true"></span></div>
+        <svg class="arrow" viewBox="0 0 20 21" aria-hidden="true"><polygon points="0,1 19,10.5 0,20" /></svg>
+      </div>
+      <div class="row green">
+        <div class="band"></div>
+        <div class="track">
+          <div class="cell"><span>12</span></div>
+          <div class="cell"><span>11</span></div>
+          <div class="cell"><span>10</span></div>
+          <div class="cell"><span>9</span></div>
+          <div class="cell"><span>8</span></div>
+          <div class="cell"><span>7</span></div>
+          <div class="cell"><span>6</span></div>
+          <div class="cell"><span>5</span></div>
+          <div class="cell"><span>4</span></div>
+          <div class="cell"><span>3</span></div>
+          <div class="cell"><span>2</span></div>
+        </div>
+        <div class="link"></div>
+        <div class="lock"><span class="lock-icon" aria-hidden="true"></span></div>
+        <svg class="arrow" viewBox="0 0 20 21" aria-hidden="true"><polygon points="0,1 19,10.5 0,20" /></svg>
+      </div>
+      <div class="row blue">
+        <div class="band"></div>
+        <div class="track">
+          <div class="cell"><span>12</span></div>
+          <div class="cell"><span>11</span></div>
+          <div class="cell"><span>10</span></div>
+          <div class="cell"><span>9</span></div>
+          <div class="cell"><span>8</span></div>
+          <div class="cell"><span>7</span></div>
+          <div class="cell"><span>6</span></div>
+          <div class="cell"><span>5</span></div>
+          <div class="cell"><span>4</span></div>
+          <div class="cell"><span>3</span></div>
+          <div class="cell"><span>2</span></div>
+        </div>
+        <div class="link"></div>
+        <div class="lock"><span class="lock-icon" aria-hidden="true"></span></div>
+        <svg class="arrow" viewBox="0 0 20 21" aria-hidden="true"><polygon points="0,1 19,10.5 0,20" /></svg>
+      </div>
+    </div>
+
+    <div class="labels">
+      <div class="label"><span>Kruisjes</span></div>
+      <div class="label"><span>Punten</span></div>
+    </div>
+    <div class="points">
+      <div class="pt"><div><span>1x</span></div><div><span>1</span></div></div>
+      <div class="pt"><div><span>2x</span></div><div><span>3</span></div></div>
+      <div class="pt"><div><span>3x</span></div><div><span>6</span></div></div>
+      <div class="pt"><div><span>4x</span></div><div><span>10</span></div></div>
+      <div class="pt"><div><span>5x</span></div><div><span>15</span></div></div>
+      <div class="pt"><div><span>6x</span></div><div><span>21</span></div></div>
+      <div class="pt"><div><span>7x</span></div><div><span>28</span></div></div>
+      <div class="pt"><div><span>8x</span></div><div><span>36</span></div></div>
+      <div class="pt"><div><span>9x</span></div><div><span>45</span></div></div>
+      <div class="pt"><div><span>10x</span></div><div><span>55</span></div></div>
+      <div class="pt"><div><span>11x</span></div><div><span>66</span></div></div>
+      <div class="pt"><div><span>12x</span></div><div><span>78</span></div></div>
+    </div>
+    <div class="pen-label"><span>Elke mislukte worp: <b>-5</b></span></div>
+    <div class="pens">
+      <div class="pen"></div>
+      <div class="pen"></div>
+      <div class="pen"></div>
+      <div class="pen"></div>
+    </div>
+
+    <div class="bar">
+      <div class="label"><span>Score</span></div>
+      <div class="box red"></div>
+      <div class="op"><span>+</span></div>
+      <div class="box yellow"></div>
+      <div class="op"><span>+</span></div>
+      <div class="box green"></div>
+      <div class="op"><span>+</span></div>
+      <div class="box blue"></div>
+      <div class="op"><span>−</span></div>
+      <div class="box penalty"></div>
+      <div class="op"><span>=</span></div>
+      <div class="box total"></div>
+    </div>
+  </div>
+</div>
 <div class="under">
   <button id="shuffle" type="button">Nieuwe volgorde</button>
   <span class="divider" aria-hidden="true"></span>
@@ -18,9 +140,10 @@
     <button id="print" class="primary" type="button">Afdrukken</button>
   </span>
 </div>
-<div id="status">4 kaartjes van 12 × 7,5 cm per A4, elk met een eigen willekeurige volgorde.</div>
+<div id="status">Afdrukken zet het kaartje hierboven 4 keer op elk A4 (12 × 7,5 cm).</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="script.js"></script>
+<script type="module" src="shuffle.js"></script>
+<script type="module" src="export-pdf.js"></script>
 </body>
 </html>
