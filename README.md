@@ -1,16 +1,11 @@
 # Qwixx generator
 
-Statische pagina met een replica van het Qwixx-scoreblad.
+[Probeer het zelf!](https://tijsvanleemput.github.io/qwixx-generator/)
 
-- **Nieuwe volgorde**: zet de getallen per rij in een willekeurige volgorde.
-- **Afdrukken**: zet het kaartje 4 keer op elk A4 (liggend, 12 × 7,5 cm per kaartje) voor het gekozen aantal A4's en opent het afdrukscherm. Kies daar "Opslaan als PDF" voor een PDF-bestand.
+Kopie van het scoreblad van het dobbelspel 'Qwixx'
 
-Afdrukken gebruikt geen PDF-library: de browser drukt kopieën van de HTML af met een print-stylesheet (`@media print` in `styles.css`).
-
-## Hosting
-
-De site draait op GitHub Pages: https://tijsvanleemput.github.io/qwixx-generator/
-
-Geen build nodig. Pages publiceert rechtstreeks vanaf de `main` branch (map `/`).
-Eenmalig instellen: **Settings → Pages → Build and deployment → Source: Deploy from a branch → `main` / `/ (root)`**.
-`.nojekyll` zorgt dat GitHub de bestanden ongewijzigd serveert.
+- **Standaardvolgorde**: zet de rijen terug in de originele richting (rood en geel 2 → 12, groen en blauw 12 → 2).
+- **Kleurenmix**: getallen in de standaardvolgorde, maar met gemengde kleurvakken per rij, zoals variant A van de 'Qwixx Mixx' uitbreiding.
+- **Random-variant**: zet de vaste volgorde van variant B van de 'Qwixx Mixx' uitbreiding, die op alle kaartjes dezelfde is.
+- **Willekeurige volgorde**: zet de getallen per rij in een willekeurige volgorde, eigen toevoeging voor meer opties
+- **Afdrukken**: druk de kaartjes af. Er staan vier kaartjes op een standaard A4 blad.
