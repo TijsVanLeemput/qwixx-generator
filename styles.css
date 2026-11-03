@@ -1,17 +1,16 @@
 :root {
   color-scheme: light;
-  --page: #f4f4f4;
-  --sheet: #e3e3e3;
-  --bar: #bcbcbc;
-  --ink: #000000;
-  --box-line: #b4b4b6;
-  --box-fill: #ffffff;
-  --cell-border: #ffffff;
-  --arrow-fill: #000000;
-  --arrow-outline: #ffffff;
-  --points-divider: #d6d6d8;
-  --bar-top-line: #c9c7c7;
-  --total-border: #000000;
+  --page: whitesmoke;
+  --sheet: gainsboro;
+  --bar: silver;
+  --ink: black;
+  --box-line: darkgray;
+  --box-fill: white;
+  --arrow-fill: black;
+  --arrow-outline: white;
+  --points-divider: lightgray;
+  --bar-top-line: silver;
+  --total-border: black;
   --font: "Fira Sans Extra Condensed", "Roboto Condensed", "Arial Narrow", sans-serif;
 }
 * { box-sizing: border-box; }
@@ -35,11 +34,11 @@ body {
 }
 .sheet > * { position: absolute; }
 
-.red    { --band: #d43c48; --track: #8e252d; --cell: #fbdfe5; --num: #d43c48; --lock-fill: #fff7f8; }
-.yellow { --band: #fce045; --track: #d5954c; --cell: #fdfbf3; --num: #fce045; --lock-fill: #fdfbf3; }
-.green  { --band: #3b9b58; --track: #1d7738; --cell: #ebf3ee; --num: #3b9b58; --lock-fill: #ffffff; }
-.blue   { --band: #35478d; --track: #2b335e; --cell: #e3e1f1; --num: #35478d; --lock-fill: #ffffff; }
-.penalty { --band: #a7a9b3; }
+.red    { --band: crimson; --track: brown; --cell: mistyrose; --num: crimson; --lock-fill: snow; }
+.yellow { --band: gold; --track: peru; --cell: floralwhite; --num: gold; --lock-fill: floralwhite; }
+.green  { --band: seagreen; --track: green; --cell: mintcream; --num: seagreen; --lock-fill: white; }
+.blue   { --band: darkslateblue; --track: midnightblue; --cell: lavender; --num: darkslateblue; --lock-fill: white; }
+.penalty { --band: darkgray; }
 
 .rows {
   top: 13em; left: 0; width: 500em;
@@ -58,8 +57,6 @@ body {
   flex: none; width: 34em; height: 38em;
   background: var(--cell); color: var(--num);
   border-radius: 6em;
-  border: 1em solid color-mix(in srgb, var(--cell-border) 90%, transparent);
-  box-shadow: inset 0 0 0 1em color-mix(in srgb, var(--cell-border) 35%, transparent);
   display: flex; align-items: center; justify-content: center;
 }
 .cell span {
@@ -110,7 +107,6 @@ body {
   background: var(--bar); border-top: 1em solid var(--bar-top-line);
   padding: 7em 0 0 13em;
   display: grid; align-items: start;
-  /*                     label box  +    box  +    box  +    box  -    box  =    total */
   grid-template-columns: 44em 40em 18em 40em 19em 40em 18em 40em 34em 40em 32em 112em;
 }
 .bar .label, .op { height: 20em; margin-top: 6em; }
@@ -127,19 +123,19 @@ body {
   font: 600 15px var(--font); color: var(--ink);
 }
 .under button {
-  font: 600 15px var(--font); padding: 7px 16px; border: 1px solid #bcbcbc;
-  border-radius: 6px; background: #ffffff; color: var(--ink); cursor: pointer;
+  font: 600 15px var(--font); padding: 7px 16px; border: 1px solid silver;
+  border-radius: 6px; background: white; color: var(--ink); cursor: pointer;
 }
-.under button.primary { background: var(--ink); border-color: var(--ink); color: #ffffff; }
+.under button.primary { background: var(--ink); border-color: var(--ink); color: white; }
 .under button:disabled { opacity: .6; cursor: progress; }
 .under button:focus-visible, .under input:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 .print-group { display: flex; align-items: center; gap: 8px; }
 .print-group input {
   width: 64px; font: 600 15px var(--font); padding: 6px 8px; text-align: center;
-  border: 1px solid #bcbcbc; border-radius: 6px; background: #ffffff; color: var(--ink);
+  border: 1px solid silver; border-radius: 6px; background: white; color: var(--ink);
 }
-.divider { width: 1px; height: 26px; background: #cfcfcf; }
-#status { font: 400 14px var(--font); color: #555; text-align: center; min-height: 1.3em; max-width: 60ch; }
+.divider { width: 1px; height: 26px; background: lightgray; }
+#status { font: 400 14px var(--font); color: dimgray; text-align: center; min-height: 1.3em; max-width: 60ch; }
 
 .print-area { display: none; }
 @page { size: A4 landscape; margin: 0; }
@@ -160,6 +156,6 @@ body {
   .print-card .sheet { font-size: .24mm; }
   .print-card::after {
     content: ""; position: absolute; inset: -.075mm; z-index: 1;
-    border: .15mm solid #9a9a9a;
+    border: .15mm solid darkgray;
   }
 }
