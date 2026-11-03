@@ -9,3 +9,5 @@ Kopie van het scoreblad van het dobbelspel 'Qwixx'
 - **Random-variant**: zet de vaste volgorde van variant B van de 'Qwixx Mixx' uitbreiding, die op alle kaartjes dezelfde is.
 - **Willekeurige volgorde**: zet de getallen per rij in een willekeurige volgorde, eigen toevoeging voor meer opties
 - **Afdrukken**: druk de kaartjes af. Er staan vier kaartjes op een standaard A4 blad.
+
+Meer varianten kunnen komen als ik er later zin in heb.
