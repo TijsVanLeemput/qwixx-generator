@@ -3,7 +3,9 @@
 Statische pagina met een replica van het Qwixx-scoreblad.
 
 - **Nieuwe volgorde**: zet de getallen per rij in een willekeurige volgorde.
-- **Afdrukken**: maakt een PDF met het gekozen aantal A4's (liggend, 4 kaartjes van 12 × 7,5 cm per blad, elk met een eigen volgorde) en opent het afdrukscherm.
+- **Afdrukken**: zet het kaartje 4 keer op elk A4 (liggend, 12 × 7,5 cm per kaartje) voor het gekozen aantal A4's en opent het afdrukscherm. Kies daar "Opslaan als PDF" voor een PDF-bestand.
+
+Afdrukken gebruikt geen PDF-library: de browser drukt kopieën van de HTML af met een print-stylesheet (`@media print` in `styles.css`).
 
 ## Hosting
 
